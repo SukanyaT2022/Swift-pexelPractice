@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 class PhotoTableViewCell:UITableViewCell{
     
+    var photoData : Photo?
+    
     @IBOutlet weak var photoNameLabel: UILabel!
     
     @IBOutlet weak var photoIDLabel: UILabel!

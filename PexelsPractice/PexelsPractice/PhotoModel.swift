@@ -21,7 +21,7 @@ struct Photo:Codable{
     var url : String?
     var photographer: String?
     var photographer_url: String?
-    var photographer_id: String?
+    var photographer_id: Int?
     var avg_color: String?
     var src: Source?
     var liked: Bool?
@@ -38,6 +38,40 @@ struct Source: Codable{
     var landscape: String?
     var tiny: String?
 }
+
+
+
+
+//alt = "Red and Orange Apple Fruit";
+//"avg_color" = "#ECCEC4";
+//height = 2827;
+//id = 102104;
+//liked = 0;
+//photographer = "mali maeder";
+//"photographer_id" = 7311;
+//"photographer_url" = "https://www.pexels.com/@mali";
+//src =     {
+//    landscape = "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200";
+//    large = "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&h=650&w=940";
+//    large2x = "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+//    medium = "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&h=350";
+//    original = "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg";
+//    portrait = "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800";
+//    small = "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&h=130";
+//    tiny = "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280";
+//};
+//url = "https://www.pexels.com/photo/red-and-orange-apple-fruit-102104/";
+//width = 2827;
+//},
+
+
+
+
+
+
+
+
+
 
 
 //{

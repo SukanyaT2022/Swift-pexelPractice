@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "1F012C54-DEA8-4E91-9918-3E0E3CC7A87C"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "934D74ED-2A60-4138-841C-AA3D04709848"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PexelsPractice/NetworkHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "getPhoto(query:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "934D74ED-2A60-4138-841C-AA3D04709848 - e8e34fb569d1180b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PexelsPractice.NetworkHelper.getPhoto(query: Swift.String, completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;PexelsPractice.Photo&gt;&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PexelsPractice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tiparpron/Desktop/newSwiftPrac/Swift-pexelPractice/PexelsPractice/PexelsPractice/NetworkHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "1520">
+               </Location>
+               <Location
+                  uuid = "934D74ED-2A60-4138-841C-AA3D04709848 - e8e34fb569d1180b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PexelsPractice.NetworkHelper.getPhoto(query: Swift.String, completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;PexelsPractice.Photo&gt;&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PexelsPractice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tiparpron/Desktop/newSwiftPrac/Swift-pexelPractice/PexelsPractice/PexelsPractice/NetworkHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "1480">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
