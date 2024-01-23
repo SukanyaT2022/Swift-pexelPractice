@@ -17,6 +17,8 @@
 		1820A2A42AFC30FD005705D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1820A2A22AFC30FD005705D8 /* LaunchScreen.storyboard */; };
 		1820A2AC2AFC3262005705D8 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820A2AB2AFC3262005705D8 /* NetworkHelper.swift */; };
 		182361EA2B484520005C5D60 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182361E92B484520005C5D60 /* PhotoDetailViewController.swift */; };
+		184323412B5987660094D831 /* PhotoEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843233F2B5987660094D831 /* PhotoEntity+CoreDataClass.swift */; };
+		184323422B5987660094D831 /* PhotoEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184323402B5987660094D831 /* PhotoEntity+CoreDataProperties.swift */; };
 		189FF7472AFD70AB00639873 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FF7462AFD70AB00639873 /* PhotoModel.swift */; };
 		18BEBDD12B2DFE620017E832 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BEBDD02B2DFE620017E832 /* PhotoTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +36,8 @@
 		1820A2A52AFC30FE005705D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1820A2AB2AFC3262005705D8 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		182361E92B484520005C5D60 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		1843233F2B5987660094D831 /* PhotoEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PhotoEntity+CoreDataClass.swift"; path = "PexelsPractice/PhotoEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		184323402B5987660094D831 /* PhotoEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PhotoEntity+CoreDataProperties.swift"; path = "PexelsPractice/PhotoEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		189FF7462AFD70AB00639873 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		18BEBDD02B2DFE620017E832 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,6 +56,8 @@
 		1820A2882AFC30FB005705D8 = {
 			isa = PBXGroup;
 			children = (
+				1843233F2B5987660094D831 /* PhotoEntity+CoreDataClass.swift */,
+				184323402B5987660094D831 /* PhotoEntity+CoreDataProperties.swift */,
 				1820A2932AFC30FB005705D8 /* PexelsPractice */,
 				1820A2922AFC30FB005705D8 /* Products */,
 			);
@@ -161,8 +167,10 @@
 				1820A2992AFC30FB005705D8 /* ViewController.swift in Sources */,
 				1820A2952AFC30FB005705D8 /* AppDelegate.swift in Sources */,
 				1820A2AC2AFC3262005705D8 /* NetworkHelper.swift in Sources */,
+				184323412B5987660094D831 /* PhotoEntity+CoreDataClass.swift in Sources */,
 				18054A782B13A8DA0035C685 /* PhotoListViewController.swift in Sources */,
 				182361EA2B484520005C5D60 /* PhotoDetailViewController.swift in Sources */,
+				184323422B5987660094D831 /* PhotoEntity+CoreDataProperties.swift in Sources */,
 				1820A2972AFC30FB005705D8 /* SceneDelegate.swift in Sources */,
 				1820A29F2AFC30FB005705D8 /* PexelsPractice.xcdatamodeld in Sources */,
 			);

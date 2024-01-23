@@ -7,10 +7,10 @@
 
 import Foundation
 import UIKit
+import CoreData // library connect with database
 class PhotoListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    
-    
+
     @IBOutlet weak var photoListTableView: UITableView!
     
     @IBOutlet weak var photoSegment: UISegmentedControl!
@@ -42,6 +42,20 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
     }
+    //fetch data from database
+    func fetchPhoto(){
+        let fetchRequest = PhotoEntity.fetchRequest()
+        let photoList = try? (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext.fetch(fetchRequest)
+    }
+    @IBAction func photoSegmentAction(_ sender:UISegmentedControl) {
+        //when secment 0 display all data- when segment one show favourite data
+        if sender.selectedSegmentIndex == 0{
+         //if for all
+        }else{
+            //else for favouriye
+        }
+    }
+    
 }
 
 extension PhotoListViewController{
@@ -64,6 +78,14 @@ extension PhotoListViewController{
         let cell = tableView.cellForRow(at:indexPath) as? PhotoTableViewCell
         self.performSegue(withIdentifier: "connectDetail", sender: cell?.photoData)
         //"connectDetail" come from connect detail from 3 screen to last screen --id -5 tab
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90 
+    }
+    //prepare data from segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let deatilViewController = segue.destination as? PhotoDetailViewController
+        deatilViewController? .photoObject = sender as? Photo // where photoObject come from?
     }
     }
 
