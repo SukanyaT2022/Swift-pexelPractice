@@ -17,6 +17,9 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var photoList : [Photo]?
     var searchQuery = ""  // data from user type on input input box -- store here-then look line 28
+    var showFavourite = false
+    var favouritePhotoList: [PhotoEntity]?
+    
     
     override func viewDidLoad() {
         photoListTableView.delegate = self
@@ -46,6 +49,7 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     func fetchPhoto(){
         let fetchRequest = PhotoEntity.fetchRequest()
         let photoList = try? (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext.fetch(fetchRequest)
+        favourite
     }
     @IBAction func photoSegmentAction(_ sender:UISegmentedControl) {
         //when secment 0 display all data- when segment one show favourite data
