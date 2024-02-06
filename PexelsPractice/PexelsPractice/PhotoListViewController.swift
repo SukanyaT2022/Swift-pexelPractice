@@ -49,14 +49,19 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     func fetchPhoto(){
         let fetchRequest = PhotoEntity.fetchRequest()
         let photoList = try? (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext.fetch(fetchRequest)
-        favourite
+        favouritePhotoList = photoList
     }
     @IBAction func photoSegmentAction(_ sender:UISegmentedControl) {
         //when secment 0 display all data- when segment one show favourite data
         if sender.selectedSegmentIndex == 0{
-         //if for all
+         //show all when false
+            showFavourite = false
+            self.photoListTableView.reloadData()
         }else{
-            //else for favouriye
+            //else show only favourite
+            showFavourite = true
+            fetchPhoto()
+            self.photoListTableView.reloadData()
         }
     }
     
@@ -64,24 +69,42 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
 
 extension PhotoListViewController{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if showFavourite == true{
+            return favouritePhotoList?.count ?? 0
+        }
         return photoList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //cell creation
         let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as? PhotoTableViewCell
-        let photoData = photoList?[indexPath.row] //which row ex row 0
-        cell?.photoNameLabel.text = photoData?.alt//alt come from photot medal
-        cell?.photoIDLabel.text = String(photoData?.photographer_id ?? 0)
-        
-        cell?.photoData = photoData
+        if showFavourite == true{
+        let photoData = favouritePhotoList?[indexPath.row] //which row ex row 0
+            cell?.photoNameLabel.text = photoData?.name//alt come from photot medal
+            cell?.photoIDLabel.text = photoData?.photoId
+            cell?.favourite = photoData
+        }else{
+            //else show all data
+            let photoData = photoList?[indexPath.row]
+            cell?.photoNameLabel.text = photoData?.alt
+            cell?.photoIDLabel.text = "\(photoData?.photographer_id ?? 0)"
+            cell?.photoData = photoData
+        }
+      
         return cell!
         }
     //we make didselect function to know which row  the user select
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at:indexPath) as? PhotoTableViewCell
-        self.performSegue(withIdentifier: "connectDetail", sender: cell?.photoData)
-        //"connectDetail" come from connect detail from 3 screen to last screen --id -5 tab
+        if showFavourite == true{
+            self.performSegue(withIdentifier: "connectDetail", sender: cell?.favourite)
+            
+        }else{
+            
+            self.performSegue(withIdentifier: "connectDetail", sender: cell?.photoData)
+            //"connectDetail" come from connect detail from 3 screen to last screen --id -5 tab
+        }
+       
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90 
@@ -89,7 +112,12 @@ extension PhotoListViewController{
     //prepare data from segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let deatilViewController = segue.destination as? PhotoDetailViewController
-        deatilViewController? .photoObject = sender as? Photo // where photoObject come from?
+        if showFavourite == true{
+            deatilViewController?.favouritePhotoObj = sender as? PhotoEntity
+        }else{
+            deatilViewController? .photoObject = sender as? Photo // where photoObject come from?
+        }
+       
     }
     }
 

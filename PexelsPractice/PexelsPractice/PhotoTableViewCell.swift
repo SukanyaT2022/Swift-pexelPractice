@@ -10,6 +10,7 @@ import UIKit
 class PhotoTableViewCell:UITableViewCell{
     
     var photoData : Photo?
+    var favourite : PhotoEntity?
     
     @IBOutlet weak var photoNameLabel: UILabel!
     
