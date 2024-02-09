@@ -20,6 +20,8 @@ class PhotoDetailViewController: UIViewController{
     
     @IBOutlet weak var favouriteButton: UIButton!
     
+    @IBOutlet weak var deleteButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         displayData()
@@ -46,13 +48,18 @@ class PhotoDetailViewController: UIViewController{
         if favouritePhotoObj != nil{
             favouriteButton.backgroundColor = .gray
             favouriteButton.isUserInteractionEnabled = false
-            return 
+            favouriteButton.setTitle("Already Save", for: .normal)
+            deleteButton.isHidden = false //delete only show on favouritephoto individual one
+            return
         }
         let fetchRequest = PhotoEntity.fetchRequest()
         let favouritePhotoList = try? (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext.fetch(fetchRequest)
         if let photoData = favouritePhotoList?.filter({$0.photoId == String(photoObject?.id ?? 0)}).first{
+            favouritePhotoObj = photoData
             favouriteButton.backgroundColor = .gray
             favouriteButton.isUserInteractionEnabled = false
+            favouriteButton.setTitle("Already Save", for: .normal)
+            deleteButton.isHidden = false //delete only show on favouritephoto individual one
         }
     }
     //next step-display function by download image
@@ -85,6 +92,15 @@ class PhotoDetailViewController: UIViewController{
             photoEntity?.imagePath = photoObject?.src?.small
             //line below save data from database
             (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    @IBAction func deleteButtonAction(_ sender: Any) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+           let photoObject = favouritePhotoObj{ // if photo object is there
+            appDelegate.persistentContainer.viewContext.delete(photoObject)//delete
+            appDelegate.saveContext()//save the update
+            //bring back to the list screen
             self.navigationController?.popViewController(animated: true)
         }
     }

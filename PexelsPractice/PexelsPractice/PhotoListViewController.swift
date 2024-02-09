@@ -24,7 +24,18 @@ class PhotoListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         photoListTableView.delegate = self
         photoListTableView.dataSource = self
-        self.getPhoto()
+     
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+      
+        if showFavourite == true{
+            self.fetchPhoto()
+            self.photoListTableView.reloadData()
+        }else{
+            self.getPhoto()
+        }
+        
     }
     //add from this line --call api here
     func getPhoto(){
@@ -118,6 +129,38 @@ extension PhotoListViewController{
             deatilViewController? .photoObject = sender as? Photo // where photoObject come from?
         }
        
+    }
+    //delete slide favourite
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+       return showFavourite
+    }
+    //what you what to do when edit ex flag delete or ?
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    //what need to be done when editing happen
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            //got the cell
+            let cell = tableView.cellForRow(at: indexPath) as? PhotoTableViewCell
+            //below alert box 137-151
+            let alertController = UIAlertController(title: "Alert!", message: "Do you want to delete?", preferredStyle: .alert)
+            let deleteAction = UIAlertAction(title: "Delete", style: .default) { _ in
+                if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+                   let photoObj = cell?.favourite {
+                    appDelegate.persistentContainer.viewContext.delete(photoObj)
+                    appDelegate.saveContext()
+                    self.fetchPhoto()
+                    self.photoListTableView.reloadData()
+                    
+                }
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style:.default)
+            alertController.addAction(deleteAction)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true)
+        }
     }
     }
 

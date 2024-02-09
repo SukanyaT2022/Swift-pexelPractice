@@ -182,6 +182,16 @@
                                     <action selector="favouriteButtonAction:" destination="qeJ-75-lTz" eventType="touchUpInside" id="GMD-Mc-Et8"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbe-Hp-53f">
+                                <rect key="frame" x="96.666666666666686" y="678" width="200" height="45"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteButtonAction:" destination="qeJ-75-lTz" eventType="touchUpInside" id="xOf-6E-E3E"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QFf-dy-Pl0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -190,16 +200,21 @@
                             <constraint firstItem="QFf-dy-Pl0" firstAttribute="trailing" secondItem="m6I-jp-lff" secondAttribute="trailing" constant="20" id="3tm-3P-LkT"/>
                             <constraint firstItem="3wo-ts-0Py" firstAttribute="leading" secondItem="QFf-dy-Pl0" secondAttribute="leading" constant="20" id="A6I-bu-tTN"/>
                             <constraint firstItem="QFf-dy-Pl0" firstAttribute="trailing" secondItem="3wo-ts-0Py" secondAttribute="trailing" constant="20" id="AJf-FC-Fru"/>
+                            <constraint firstItem="qbe-Hp-53f" firstAttribute="width" secondItem="UNq-ua-ZYB" secondAttribute="width" id="EAX-VM-MCO"/>
                             <constraint firstItem="xU5-Ci-RzT" firstAttribute="top" secondItem="QFf-dy-Pl0" secondAttribute="top" id="F4g-ev-ASI"/>
+                            <constraint firstItem="qbe-Hp-53f" firstAttribute="top" secondItem="UNq-ua-ZYB" secondAttribute="bottom" constant="20" id="NLF-sV-8gJ"/>
                             <constraint firstItem="m6I-jp-lff" firstAttribute="leading" secondItem="QFf-dy-Pl0" secondAttribute="leading" constant="20" id="WAD-MS-49q"/>
                             <constraint firstItem="xU5-Ci-RzT" firstAttribute="centerX" secondItem="0DA-jt-y9x" secondAttribute="centerX" id="XLG-e6-pp5"/>
+                            <constraint firstItem="qbe-Hp-53f" firstAttribute="height" secondItem="UNq-ua-ZYB" secondAttribute="height" id="Xjk-x5-Avv"/>
                             <constraint firstItem="3wo-ts-0Py" firstAttribute="top" secondItem="m6I-jp-lff" secondAttribute="bottom" constant="20" id="a57-uv-5SS"/>
                             <constraint firstItem="UNq-ua-ZYB" firstAttribute="centerX" secondItem="0DA-jt-y9x" secondAttribute="centerX" id="gOv-fp-wN8"/>
+                            <constraint firstItem="qbe-Hp-53f" firstAttribute="centerX" secondItem="0DA-jt-y9x" secondAttribute="centerX" id="mYD-mu-5PR"/>
                             <constraint firstItem="QFf-dy-Pl0" firstAttribute="bottom" secondItem="UNq-ua-ZYB" secondAttribute="bottom" constant="160" id="z02-1e-01a"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="er5-OD-8r3"/>
                     <connections>
+                        <outlet property="deleteButton" destination="qbe-Hp-53f" id="Bq5-bn-HeD"/>
                         <outlet property="favouriteButton" destination="UNq-ua-ZYB" id="CWm-Jt-3lQ"/>
                         <outlet property="photoImageView" destination="xU5-Ci-RzT" id="qby-jt-2Cg"/>
                         <outlet property="photographerLabel" destination="3wo-ts-0Py" id="aLi-SX-Wy8"/>
@@ -235,6 +250,9 @@
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
